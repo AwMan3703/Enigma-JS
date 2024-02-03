@@ -1,7 +1,7 @@
 
 const keyparam = 'enigmakey'; // The name of the url parameter containing the decryption key
 
-const decryptables = document.getElementsByClassName('enigmajs-decrypt'); // Find the elements that need decryption
+const decryptables = document.getElementsByTagName('enigmajs-decrypt'); // Find the elements that need decryption
 
 let key = 0;
 
