@@ -1,19 +1,33 @@
 
 const caesarCypher = (text, key) => {
     const allchars = [
-        '»','a','à','b','c','d','e','è','é','f','g','h','i','ì','j','k','l','m','n','o','ò','p','q','r','s','t','u','ù','v','w','x','y','z',
-        '1','2','3','4','5','6','7','8','9','0',' ',
-        '\\','|','!','¡','"','£','$','%','&','/','(',')','=','\'','?','¿','^','<','>','≤','≥','[',']','+','*','ç','Ç','@','°','#','§','¶',
-        ',',';','…','.',':','•','·','-','_','–','—','«','“','‘','¥','~','‹','÷','´','`','≠',
-        '∞','◊','{','}','ˆ','≈','','⁄','›','‰','¢','’','”','»'
+        "a","à","b","c","d","e","è","é","f","g","h","i","ì","j","k","l","m","n","o","ò","p","q","r","s","t","u","ù","v","w","x","y","z",
+        "1","2","3","4","5","6","7","8","9","0"," ",
+        "\\","|","!","¡","\"","£","$","%","&","/","(",")","=","\"","?","¿","^","<",">","≤","≥","[","]","+","*","ç","Ç","@","°","#","§","¶",
+        ",",";","…",".",":","•","·","-","_","–","—","«","»","“","‘","¥","~","‹","÷","´","`","≠",
+        "∞","◊","{","}","ˆ","≈","","⁄","›","‰","¢","’","”","'"
     ];
     let result = '';
 
     /* Just a simple Caesar cypher */
     const chars = Array.from(text);
     chars.forEach(c => {
-        result += allchars[allchars.indexOf(c) + key]
+        const index = allchars.indexOf(c);
+        let encryptedindex = 0
+        if (index + key < 0) {
+            console.log('negative overflow, offsetting from end')
+            encryptedindex = allchars.length - Math.abs(key + index)
+        } else if (index + key > (allchars.length - 1)) {
+            console.log('positive overflow, offsetting from start')
+            encryptedindex = index + key - allchars.length
+        } else {
+            console.log(`encrypted with no exception`)
+            encryptedindex = index + key
+        }
+        result += allchars[encryptedindex]
     });
+
+    console.log(result)
 
     return result;
 }
