@@ -1,20 +1,17 @@
 
 const keyparam = 'enigmakey'; // The name of the url parameter containing the decryption key
+const searchParams = new URLSearchParams(window.location.search); // Get the url parameters
 
 const decryptables = document.getElementsByTagName('enigmajs-decrypt'); // Find the elements that need decryption
 
-let key = 0;
+let key = parseInt(searchParams.get(keyparam));
 
-const searchParams = new URLSearchParams(window.location.search); // Get the url parameters
-if (!(searchParams.has(keyparam))) { console.log("no Enigmajs key found"); } // If no key is found, abort
-
-if (key !== undefined && !isNaN(key)) { // If a key is present:
+if (searchParams.has(keyparam) && key !== undefined && !isNaN(key)) { // If a key is present and valid, decipher
     console.log("Enigmajs key is valid, proceeding with translation");
-    key = parseInt(searchParams.get(keyparam)); // Get the key from the parameter
-} else {
-    console.log("Enigmajs key is invalid");
-} // If key is invalid, abort
-
+} else { // If the key is invalid or missing, abort
+    console.log("Enigmajs key is not present or invalid");
+    key = 0
+}
 
 for (let i = 0; i < decryptables.length; i++) {
     const e = decryptables[i];

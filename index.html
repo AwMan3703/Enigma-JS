@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Enigma.js encryption demo</title>
 
-        <link rel="stylesheet" href="css/compiled-css/main.css">
+        <link rel="stylesheet" href="css/main.css">
     </head>
 
     <body>
@@ -14,12 +14,23 @@
                 <h1>Enigma.js demo</h1>
             </header>
 
-            <div id="explaination">
+            <div id="explanation">
                 <p>
-                    enigma.js is a script that decyphers a page with a given key, so that only selected clients can see protected content.
+                    enigma.js is a script that deciphers a page with a given key, so that only selected clients can see protected content.
                 </p>
                 <hr>
                 <h3>How to use:</h3>
+                <p>
+                    <ul>
+                        <li>
+                            wrap cyphered HTML in the <code>enigmajs-decrypt</code> tag to decrypt it on page load
+                        </li>
+                        <li>
+
+                        </li>
+                    </ul>
+                </p>
+                <h3>Example:</h3>
                 <p>
                     decrypt the content below by adding <code>?enigmakey=1</code> to the page url
                 </p>
@@ -37,7 +48,7 @@
 
                 <div class="form-group horizontal">
                     <label for="translator-key">Shift:</label>
-                    <input placeholder="0" type="number" min="0" name="translator-key" id="translator-key">
+                    <input placeholder="0" type="number" min="-1" max="1" name="translator-key" id="translator-key">
                     <button type="submit" onclick="translator_translateCC()">submit</button>
                 </div>
 
@@ -52,7 +63,7 @@
             <h2>HTML to be decrypted:</h2>
             <hr>
             <enigmajs-decrypt keysrc="php-parameter" keyname="first-paragraph">
-                gdkkn0vnqkc^àq<'krn0vnqjr0nm0gslk0s'fr
+                ^chù0rsxkd)¡à'bjfqntmc·bnknq.0qdc,¡<^g2<Cdbhògdqdc|^&g2<^àq<sghr0GSLK0v'r0cdbhògdqdc0àx0”mhfl'””^&chù<
             </enigmajs-decrypt>
         </section>
 
