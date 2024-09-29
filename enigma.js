@@ -19,6 +19,7 @@ for (let i = 0; i < decryptables.length; i++) {
     const x = document.createElement(e.nodeName)
     x.innerHTML = d
 
+    console.log('appending ', d)
     e.parentElement.append(x);
     e.remove();
 }

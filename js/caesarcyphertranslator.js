@@ -17,6 +17,10 @@ const caesarCypher = (text, key) => {
     /* Just a simple Caesar cypher */
     const chars = Array.from(text);
     chars.forEach(c => {
+        if (!allchars.includes(c)) {
+            console.error('Character not found in table: ', c)
+        }
+
         const index = allchars.indexOf(c);
         let encryptedindex = 0;
         if (index + key < 0) {
