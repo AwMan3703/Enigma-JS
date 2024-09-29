@@ -20,13 +20,10 @@ const caesarCypher = (text, key) => {
         const index = allchars.indexOf(c);
         let encryptedindex = 0;
         if (index + key < 0) {
-            console.log('negative overflow, offsetting from end')
             encryptedindex = allchars.length - Math.abs(key + index)
         } else if (index + key > (allchars.length - 1)) {
-            console.log('positive overflow, offsetting from start')
             encryptedindex = index + key - allchars.length
         } else {
-            console.log(`encrypted with no exception`)
             encryptedindex = index + key
         }
         result += allchars[encryptedindex]
